@@ -1,0 +1,62 @@
+// @import '../node_modules/bulma/bulma.sass';
+
+// Colors
+$blue: #5964e0;
+$gray-lighter: #f5f6f8;
+$dark-color-1: #131722;
+$dark-color-2: #18202d;
+
+// Bulma's global variables
+$primary: $blue;
+
+// Bulma's component variables
+$body-background-color: $gray-lighter;
+
+$input-shadow: none;
+$input-border-color: none;
+$input-hover-border-color: none;
+$input-focus-color: none;
+$input-focus-border-color: none;
+$input-focus-box-shadow-size: none;
+$input-focus-box-shadow-color: none;
+
+$button-focus-color: none;
+$button-focus-border-color: none;
+$button-focus-box-shadow-size: none;
+$button-focus-box-shadow-color: none;
+
+$card-shadow: none;
+
+$link-hover: #4e5ade;
+
+.job-card-content {
+  padding: 3rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  .job-card-content {
+    padding: 2rem !important;
+  }
+}
+
+.how-to-apply {
+  a {
+    color: #fff !important;
+    font-weight: bold !important;
+  }
+
+  a:hover {
+    color: #e6e6e6 !important;
+  }
+}
+
+// Import only what you need from Bulma
+@import '../node_modules/bulma/sass/utilities/_all.sass';
+@import '../node_modules/bulma/sass/grid/_all.sass';
+@import '../node_modules/bulma/sass/helpers/_all.sass';
+@import '../node_modules/bulma/sass/base/_all.sass';
+@import '../node_modules/bulma/sass/elements/_all.sass';
+@import '../node_modules/bulma/sass/form/_all.sass';
+@import '../node_modules/bulma/sass/components/_all.sass';
+@import '../node_modules/bulma/sass/layout/hero.sass';
+@import '../node_modules/bulma/sass/layout/section.sass';
