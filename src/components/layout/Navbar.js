@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+import AppContext from '../../context/app/appContext';
 
 const Navbar = () => {
+  const appContext = useContext(AppContext);
+
+  const { theme, toggleTheme } = appContext;
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  const handleClick = (e) => {
+    toggleTheme();
+  };
+
   return (
-    <div
-      className='section has-background-primary'
-      style={{
-        borderBottomLeftRadius: '5rem',
-        paddingTop: '2rem',
-        paddingBottom: '5rem',
-      }}
-    >
+    <header className='main-header section has-background-primary'>
       <div className='container'>
         <div className='columns is-vcentered is-mobile'>
           <div className='column is-6'>
             <h1 className='title'>
-              <a href='/' className='has-text-white'>
+              <Link to='/' className='has-text-white'>
                 devjobs
-              </a>
+              </Link>
             </h1>
           </div>
           <div className='column is-6 has-text-right'>
-            <a href='#!' className='has-text-white'>
-              <i className='fas fa-moon'></i> Dark Mode
-              {/* <i className='fas fa-sun'></i> Light Mode */}
+            <a href='#!' onClick={handleClick} className='has-text-white'>
+              <i className={theme === '' ? 'fas fa-moon' : 'fas fa-sun'}></i>{' '}
+              {theme === '' ? 'Dark Mode' : 'Light Mode'}
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

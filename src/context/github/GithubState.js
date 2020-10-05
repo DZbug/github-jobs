@@ -81,26 +81,26 @@ const GithubState = (props) => {
   const getJob = async (id) => {
     setLoading();
 
-    // setTimeout(async () => {
-    // временно, для оптимизации
-    // if (!localStorage.getItem('job')) {
-    const res = await axios.get(
-      `${cors}https://jobs.github.com/positions/${id}.json`
-    );
+    setTimeout(async () => {
+      // временно, для оптимизации
+      if (!localStorage.getItem('job')) {
+        const res = await axios.get(
+          `${cors}https://jobs.github.com/positions/${id}.json`
+        );
 
-    // localStorage.setItem('job', JSON.stringify(res.data));
+        localStorage.setItem('job', JSON.stringify(res.data));
 
-    dispatch({
-      type: GET_JOB,
-      payload: res.data,
-    });
-    //   } else {
-    //     dispatch({
-    //       type: GET_JOB,
-    //       payload: JSON.parse(localStorage.getItem('job')),
-    //     });
-    //   }
-    // }, 2000);
+        dispatch({
+          type: GET_JOB,
+          payload: res.data,
+        });
+      } else {
+        dispatch({
+          type: GET_JOB,
+          payload: JSON.parse(localStorage.getItem('job')),
+        });
+      }
+    }, 2000);
   };
 
   const clearJob = () => dispatch({ type: CLEAR_JOB });
@@ -112,34 +112,34 @@ const GithubState = (props) => {
 
     setLoading();
 
-    // setTimeout(async () => {
-    //   // временно, для оптимизации
-    //   if (!localStorage.getItem('jobs')) {
-    const { description, location } = data;
+    setTimeout(async () => {
+      // временно, для оптимизации
+      if (!localStorage.getItem('jobs')) {
+        const { description, location } = data;
 
-    setSearch(data);
+        setSearch(data);
 
-    const res = await axios.get(
-      `${cors}https://jobs.github.com/positions.json?page=${page}&description=${description}&location=${location}`
-    );
+        const res = await axios.get(
+          `${cors}https://jobs.github.com/positions.json?page=${page}&description=${description}&location=${location}`
+        );
 
-    setCurrentCount(res.data.length);
+        setCurrentCount(res.data.length);
 
-    dispatch({
-      type: SEARCH_JOBS,
-      payload: res.data,
-    });
-    //   } else {
-    //     setSearch(data);
+        dispatch({
+          type: SEARCH_JOBS,
+          payload: res.data,
+        });
+      } else {
+        setSearch(data);
 
-    //     setCurrentCount(50);
+        setCurrentCount(50);
 
-    //     dispatch({
-    //       type: SEARCH_JOBS,
-    //       payload: JSON.parse(localStorage.getItem('jobs')),
-    //     });
-    //   }
-    // }, 2000);
+        dispatch({
+          type: SEARCH_JOBS,
+          payload: JSON.parse(localStorage.getItem('jobs')),
+        });
+      }
+    }, 2000);
   };
 
   const clearSearchJobs = () => dispatch({ type: CLEAR_SEARCH_JOBS });

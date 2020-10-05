@@ -1,3 +1,5 @@
+export const TOGGLE_THEME = 'TOGGLE_THEME';
+
 export const GET_JOBS = 'GET_JOBS';
 export const CLEAR_JOBS = 'CLEAR_JOBS';
 export const SET_PAGE = 'SET_PAGE';

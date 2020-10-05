@@ -40,7 +40,7 @@ const Jobs = () => {
   }
 
   return (
-    <div className='section mt-3'>
+    <div className='jobs-section section mt-3'>
       <div className='container'>
         {jobs.length !== 0 ? (
           <JobsList

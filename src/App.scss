@@ -29,24 +29,146 @@ $card-shadow: none;
 
 $link-hover: #4e5ade;
 
-.job-card-content {
-  padding: 3rem !important;
+// Styles
+
+// Header
+.main-header {
+  border-bottom-left-radius: 5rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 5rem !important;
+}
+
+// Search
+.search-section {
+  position: relative;
+
+  .card {
+    position: absolute;
+    width: 100%;
+    top: -2.25rem;
+  }
+
+  &-control {
+    width: 100% !important;
+  }
+}
+
+// Jobs
+.jobs-section {
+  .card {
+    width: 100% !important;
+
+    .card-content {
+      height: 100% !important;
+
+      .content {
+        flex-direction: column !important;
+        height: 100% !important;
+
+        .job-item {
+          flex: 1;
+        }
+      }
+    }
+  }
+}
+
+// Company
+.company-section {
+  position: relative;
+
+  .card {
+    position: absolute;
+    width: 100%;
+    top: -2.25rem;
+  }
+
+  .card-content {
+    padding: 3rem !important;
+  }
+
+  .content {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-info {
+    align-items: center;
+  }
+
+  img {
+    height: auto;
+    max-height: 60px;
+    max-width: 100px;
+    margin-right: 1rem;
+  }
+}
+
+// Job
+.job-section {
+  padding-top: 10.5rem !important;
+
+  .card-content {
+    padding: 3rem !important;
+  }
+
+  .job {
+    justify-content: space-between;
+  }
+
+  .apply {
+    a {
+      color: #fff !important;
+      font-weight: bold !important;
+    }
+
+    a:hover {
+      color: #e6e6e6 !important;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .job-card-content {
+  .company-section .card-content,
+  .job-section .card-content {
     padding: 2rem !important;
   }
 }
 
-.how-to-apply {
-  a {
-    color: #fff !important;
-    font-weight: bold !important;
+.dark-theme {
+  background-color: $dark-color-1;
+  min-height: 100vh;
+
+  strong {
+    color: hsl(0, 0%, 86%) !important;
   }
 
-  a:hover {
-    color: #e6e6e6 !important;
+  .card {
+    background-color: $dark-color-2;
+    color: hsl(0, 0%, 86%) !important;
+  }
+
+  .has-text-dark {
+    color: hsl(0, 0%, 86%) !important;
+  }
+
+  a.has-text-dark:hover {
+    color: hsl(0, 0%, 71%) !important;
+  }
+
+  .has-text-grey {
+    color: hsl(0, 0%, 48%) !important;
+  }
+
+  .search-section {
+    input[type='text'] {
+      background-color: $dark-color-2;
+      color: hsl(0, 0%, 86%) !important;
+    }
+
+    input[type='text']::placeholder {
+      color: hsl(0, 0%, 48%) !important;
+    }
   }
 }
 

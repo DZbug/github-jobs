@@ -44,73 +44,47 @@ const Job = ({ match }) => {
 
   return (
     <Fragment>
-      <div className='section py-0' style={{ position: 'relative' }}>
+      <div className='company-section section py-0'>
         <div className='container'>
-          <div
-            className='card'
-            style={{
-              position: 'absolute',
-              width: '100%',
-              top: '-2.25rem',
-            }}
-          >
-            <div className='card-content job-card-content'>
-              <div className='content'>
-                <div
-                  className='is-flex-tablet has-text-centered-mobile'
-                  style={{
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <div className='mb-4'>
-                    <div
-                      className='is-flex-tablet'
-                      style={{ alignItems: 'center' }}
-                    >
-                      <img
-                        className='is-hidden-mobile'
-                        src={company_logo}
-                        alt=''
-                        style={{
-                          height: 'auto',
-                          maxHeight: '60px',
-                          maxWidth: '100px',
-                          marginRight: '1rem',
-                        }}
-                      />
-                      <div>
-                        <h1 className='has-text-weight-bold is-size-4-mobile mt-0 mb-2'>
-                          {company}
-                        </h1>
-                        {company_url && (
-                          <p>{company_url.replace(/(^\w+:|^)\/\//, '')}</p>
-                        )}
-                      </div>
+          <div className='card'>
+            <div className='card-content'>
+              <div className='content is-flex-tablet has-text-centered-mobile'>
+                <div className='mb-4'>
+                  <div className='is-flex-tablet company-section-info'>
+                    <img
+                      className='is-hidden-mobile'
+                      src={company_logo}
+                      alt='Company Logo'
+                    />
+                    <div>
+                      <h2 className='has-text-dark has-text-weight-bold is-size-4-mobile mt-0 mb-2'>
+                        {company}
+                      </h2>
+                      <p className='has-text-grey'>{location}</p>
                     </div>
                   </div>
-                  {company_url && (
-                    <a
-                      href={company_url}
-                      className='button is-link is-light'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Company Site
-                    </a>
-                  )}
                 </div>
+                {company_url && (
+                  <a
+                    href={company_url}
+                    className='button is-link is-light'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Company Site
+                  </a>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className='section' style={{ paddingTop: '10.5rem' }}>
+      <div className='job-section section'>
         <div className='container'>
           <div className='columns'>
             <div className='column'>
               <div className='card'>
-                <div className='card-content job-card-content'>
+                <div className='card-content'>
                   <div className='content'>
                     <p className='has-text-grey mb-2'>
                       <Moment fromNow ago>
@@ -118,14 +92,9 @@ const Job = ({ match }) => {
                       </Moment>{' '}
                       ago | {type}
                     </p>
-                    <div
-                      className='is-flex-tablet'
-                      style={{
-                        justifyContent: 'space-between',
-                      }}
-                    >
+                    <div className='is-flex-tablet job'>
                       <div className='mb-5'>
-                        <h1 className='has-text-weight-bold is-size-4-mobile mt-0 mb-2'>
+                        <h1 className='has-text-dark has-text-weight-bold is-size-4-mobile mt-0 mb-2'>
                           {title}
                         </h1>
                         <p className='has-text-primary has-text-weight-semibold '>
@@ -155,8 +124,8 @@ const Job = ({ match }) => {
                 </div>
               </div>
               <div className='card mt-5 has-text-white has-background-primary'>
-                <div className='card-content job-card-content'>
-                  <div className='content how-to-apply'>
+                <div className='card-content'>
+                  <div className='content apply'>
                     <h2 className='has-text-weight-bold mt-0 is-size-4-mobile has-text-white'>
                       How to Apply
                     </h2>

@@ -8,16 +8,10 @@ const JobItem = ({
 }) => {
   return (
     <div className='column is-6-tablet is-4-desktop is-flex'>
-      <div className='card' style={{ width: '100%' }}>
-        <div className='card-content' style={{ height: '100%' }}>
-          <div
-            className='content is-flex'
-            style={{
-              flexDirection: 'column',
-              height: '100%',
-            }}
-          >
-            <div className='mb-4' style={{ flex: '1' }}>
+      <div className='card'>
+        <div className='card-content'>
+          <div className='content is-flex'>
+            <div className='mb-4 job-item'>
               <p className='has-text-grey'>
                 <Moment fromNow ago>
                   {new Date(created_at)}
