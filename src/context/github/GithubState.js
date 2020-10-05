@@ -17,7 +17,7 @@ import {
   SET_LOADING,
 } from '../types';
 
-const api = 'http://localhost:5000/api';
+const api = 'https://agile-everglades-48303.herokuapp.com/api';
 
 const GithubState = (props) => {
   const initialState = {

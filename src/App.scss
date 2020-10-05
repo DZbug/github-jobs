@@ -177,11 +177,14 @@ $link-hover: #4e5ade;
     color: hsl(0, 0%, 86%) !important;
   }
 
-  .has-text-dark {
+  .has-text-dark,
+  a.has-text-dark:visited,
+  a.has-text-dark:focus {
     color: hsl(0, 0%, 86%) !important;
   }
 
-  a.has-text-dark:hover {
+  a.has-text-dark:hover,
+  a.has-text-dark:active {
     color: hsl(0, 0%, 71%) !important;
   }
 
