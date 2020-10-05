@@ -17,7 +17,7 @@ import {
   SET_LOADING,
 } from '../types';
 
-const cors = 'https://cors-anywhere.herokuapp.com/';
+const api = 'http://localhost:5000/api';
 
 const GithubState = (props) => {
   const initialState = {
@@ -41,36 +41,18 @@ const GithubState = (props) => {
     if ((description && description !== '') || (location && location !== '')) {
       searchJobs(page, data);
     } else {
-      setTimeout(async () => {
-        // временно, для оптимизации
-        if (!localStorage.getItem('jobs')) {
-          clearSearchJobs();
+      clearSearchJobs();
 
-          const res = await axios.get(
-            `${cors}https://jobs.github.com/positions.json?page=${page}`
-          );
+      const res = await axios.get(`${api}/github-jobs?page=${page}`);
 
-          // если больше не возвращается, заблочить кнопку и не выполнять запросы (оповещение)
+      // если больше не возвращается, заблочить кнопку и не выполнять запросы (оповещение)
 
-          localStorage.setItem('jobs', JSON.stringify(res.data));
+      setCurrentCount(res.data.length);
 
-          setCurrentCount(res.data.length);
-
-          dispatch({
-            type: GET_JOBS,
-            payload: res.data,
-          });
-        } else {
-          clearSearchJobs();
-
-          setCurrentCount(50);
-
-          dispatch({
-            type: GET_JOBS,
-            payload: JSON.parse(localStorage.getItem('jobs')),
-          });
-        }
-      }, 2000);
+      dispatch({
+        type: GET_JOBS,
+        payload: res.data,
+      });
     }
   };
 
@@ -81,26 +63,12 @@ const GithubState = (props) => {
   const getJob = async (id) => {
     setLoading();
 
-    setTimeout(async () => {
-      // временно, для оптимизации
-      if (!localStorage.getItem('job')) {
-        const res = await axios.get(
-          `${cors}https://jobs.github.com/positions/${id}.json`
-        );
+    const res = await axios.get(`${api}/github-jobs/${id}`);
 
-        localStorage.setItem('job', JSON.stringify(res.data));
-
-        dispatch({
-          type: GET_JOB,
-          payload: res.data,
-        });
-      } else {
-        dispatch({
-          type: GET_JOB,
-          payload: JSON.parse(localStorage.getItem('job')),
-        });
-      }
-    }, 2000);
+    dispatch({
+      type: GET_JOB,
+      payload: res.data,
+    });
   };
 
   const clearJob = () => dispatch({ type: CLEAR_JOB });
@@ -112,34 +80,20 @@ const GithubState = (props) => {
 
     setLoading();
 
-    setTimeout(async () => {
-      // временно, для оптимизации
-      if (!localStorage.getItem('jobs')) {
-        const { description, location } = data;
+    const { description, location } = data;
 
-        setSearch(data);
+    setSearch(data);
 
-        const res = await axios.get(
-          `${cors}https://jobs.github.com/positions.json?page=${page}&description=${description}&location=${location}`
-        );
+    const res = await axios.get(
+      `${api}/github-jobs?page=${page}&description=${description}&location=${location}`
+    );
 
-        setCurrentCount(res.data.length);
+    setCurrentCount(res.data.length);
 
-        dispatch({
-          type: SEARCH_JOBS,
-          payload: res.data,
-        });
-      } else {
-        setSearch(data);
-
-        setCurrentCount(50);
-
-        dispatch({
-          type: SEARCH_JOBS,
-          payload: JSON.parse(localStorage.getItem('jobs')),
-        });
-      }
-    }, 2000);
+    dispatch({
+      type: SEARCH_JOBS,
+      payload: res.data,
+    });
   };
 
   const clearSearchJobs = () => dispatch({ type: CLEAR_SEARCH_JOBS });

@@ -117,6 +117,39 @@ $link-hover: #4e5ade;
   }
 
   .apply {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    b,
+    em,
+    i,
+    small,
+    strong,
+    sub,
+    sup,
+    ins,
+    del,
+    mark,
+    code,
+    kbd,
+    samp,
+    var,
+    pre,
+    abbr,
+    bdo,
+    blockquote,
+    q,
+    cite,
+    dfn,
+    p,
+    br,
+    hr {
+      color: #fff !important;
+    }
+
     a {
       color: #fff !important;
       font-weight: bold !important;
@@ -138,10 +171,6 @@ $link-hover: #4e5ade;
 .dark-theme {
   background-color: $dark-color-1;
   min-height: 100vh;
-
-  strong {
-    color: hsl(0, 0%, 86%) !important;
-  }
 
   .card {
     background-color: $dark-color-2;
@@ -168,6 +197,43 @@ $link-hover: #4e5ade;
 
     input[type='text']::placeholder {
       color: hsl(0, 0%, 48%) !important;
+    }
+  }
+
+  .job-section {
+    &-description {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      b,
+      em,
+      i,
+      small,
+      strong,
+      sub,
+      sup,
+      ins,
+      del,
+      mark,
+      code,
+      kbd,
+      samp,
+      var,
+      pre,
+      abbr,
+      bdo,
+      blockquote,
+      q,
+      cite,
+      dfn,
+      p,
+      br,
+      hr {
+        color: hsl(0, 0%, 86%) !important;
+      }
     }
   }
 }

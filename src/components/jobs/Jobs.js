@@ -65,7 +65,7 @@ const Jobs = () => {
                 }}
               />
             ) : (
-              <p className='is-size-5 has-text-centered'>
+              <p className='has-text-grey is-size-5 has-text-centered'>
                 We couldn’t find any jobs...
               </p>
             )}

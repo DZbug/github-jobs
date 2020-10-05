@@ -115,7 +115,7 @@ const Job = ({ match }) => {
                       </div>
                     </div>
                     <div
-                      className='pt-5'
+                      className='job-section-description pt-5'
                       dangerouslySetInnerHTML={{
                         __html: sanitizer(description),
                       }}
