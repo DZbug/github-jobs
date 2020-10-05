@@ -45,8 +45,6 @@ const GithubState = (props) => {
 
       const res = await axios.get(`${api}/github-jobs?page=${page}`);
 
-      // если больше не возвращается, заблочить кнопку и не выполнять запросы (оповещение)
-
       setCurrentCount(res.data.length);
 
       dispatch({
